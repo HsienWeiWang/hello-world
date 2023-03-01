@@ -20,17 +20,21 @@ jobs:
       - name: List branchs
         run: git branch -r
       
-#       - name: Create folder
-#         run: |
-#           mkdir -p test
-      - name: Deploy
-        uses: codingforentrepreneurs/action-branch-to-branch@main
-        with:
-          dest_branch: 'master_ready'
-          source_branch: 'master'
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Checkout
+        run: |
+          git config --global user.email "wang83083030@gmail.com"
+          git config --global user.name "Wilson Wang"
+          git checkout origin/master_ready
       
-#       - name: List files after
-#         run: ls
+      - name: List files before
+        run: ls
+      
+      - name: Merge
+        run: |
+          git config --global user.email "wang83083030@gmail.com"
+          git config --global user.name "Wilson Wang"
+          git merge origin/master
+      
+      - name: List files after
+        run: ls
       

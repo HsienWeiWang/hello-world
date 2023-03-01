@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       
       - name: Branch name
         run: echo running on branch ${GITHUB_REF##*/}

@@ -19,6 +19,10 @@ jobs:
       
       - name: List branchs
         run: git branch -r
+      
+      - name: Create folder
+        run: |
+          mkdir -p test
         
       - name: Push
         run: |

@@ -25,6 +25,5 @@ jobs:
           git add.
           git commit -m  "github actions auto sync"
           git push origin/test
-        with:
-          token: ${{ secrets.access-token }}
+        
         

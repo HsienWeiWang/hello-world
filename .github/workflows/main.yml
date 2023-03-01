@@ -23,14 +23,12 @@ jobs:
 #       - name: Create folder
 #         run: |
 #           mkdir -p test
-        
       - name: Deploy
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: master_ready
-          FOLDER: .
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: tretuna/sync-branches@1.4.0
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          FROM_BRANCH: "master"
+          TO_BRANCH: "master_ready"
       
 #       - name: List files after
 #         run: ls

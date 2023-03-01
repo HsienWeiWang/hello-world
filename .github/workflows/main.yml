@@ -39,7 +39,7 @@ jobs:
         run: |
           git config --global user.email "wang83083030@gmail.com"
           git config --global user.name "Wilson Wang"
-          git push
+          git push origin/master_ready
       
       - name: List files after
         run: ls

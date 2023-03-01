@@ -14,3 +14,15 @@ jobs:
       
       - name: Branch name
         run: echo running on branch ${GITHUB_REF##*/}
+      
+      - name: List
+        run: ls
+        
+      - name: Push
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: test # The branch name where you want to push the assets
+          FOLDER: wilson # The directory where your assets are generated
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+          MESSAGE: "Build: ({sha}) {msg}" # The commit message

@@ -20,7 +20,11 @@ jobs:
       - name: List branchs
         run: git branch -r
         
-#       - name: Push
-#         with:
-#           token: ${{ secrets.access-token }}
+      - name: Push
+        run: |
+          git add.
+          git commit -m  "github actions auto sync"
+          git push origin/test
+        with:
+          token: ${{ secrets.access-token }}
         

@@ -24,11 +24,12 @@ jobs:
 #         run: |
 #           mkdir -p test
       - name: Deploy
-        uses: tretuna/sync-branches@1.4.0
+        uses: codingforentrepreneurs/action-branch-to-branch@main
         with:
+          dest_branch: 'master_ready'
+          source_branch: 'master'
+        env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          FROM_BRANCH: "master"
-          TO_BRANCH: "master_ready"
       
 #       - name: List files after
 #         run: ls

@@ -20,25 +20,18 @@ jobs:
       - name: List branchs
         run: git branch -r
       
-      - name: Create folder
-        run: |
-          mkdir -p test
+#       - name: Create folder
+#         run: |
+#           mkdir -p test
         
-      - name: Checkout
-        run: |
-          git config --global user.email "wang83083030@gmail.com"
-          git config --global user.name "Wilson Wang"
-          git checkout origin/master_ready
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: master_ready
+          FOLDER: .
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: List files before
-        run: ls
-      
-      - name: Merge
-        run: |
-          git config --global user.email "wang83083030@gmail.com"
-          git config --global user.name "Wilson Wang"
-          git merge origin/master
-      
-      - name: List files after
-        run: ls
+#       - name: List files after
+#         run: ls
       

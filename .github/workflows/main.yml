@@ -9,16 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Step 1
-        id: step1
-        run: exit 1
-      - name: Step 2
-        run: echo "Step 2"
-      - name: Step 3
-        run: echo "Step 3"
-        if: always() && steps.step1.outcome == 'failure'
-      - name: Step 4
-        run: echo "Step 4"
+      - name: step1
+        run: |
+          cd ./$PIPELINE_FOLDER_PATH
+          mkdir -p "dag_py_folder"
+      - name: step2
+        run: |
+          ls
+          cd ./$PIPELINE_FOLDER_PATH
+          ls
 #       - name: Check out
 #         uses: actions/checkout@v3
 #         with:

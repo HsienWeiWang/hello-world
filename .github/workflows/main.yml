@@ -19,8 +19,10 @@ jobs:
           env="develop"
           if [ "${GITHUB_REF##*/}" = "master" ]; then
             env="beta"
+          fi
           if [ "${GITHUB_REF##*/}" = "test" ]; then
-            env="test" 
+            env="test"
+          fi
           echo "$env"
 
       

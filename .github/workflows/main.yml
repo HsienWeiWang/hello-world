@@ -11,10 +11,14 @@ jobs:
     steps:
       - name: step1
         run: |
-          cd ./wilson
-          mkdir -p "dag_py_folder"
-      - name: step2
-        run: |
           pwd
-          cd ./wilson
+          echo =============
           ls
+          
+#       - name: step2
+#         run: |
+#           pwd
+#           cd ./wilson
+#           ls
+#           cd ./wilson
+#           mkdir -p "dag_py_folder"

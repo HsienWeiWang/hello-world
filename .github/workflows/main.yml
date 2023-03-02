@@ -15,9 +15,9 @@ jobs:
           fetch-depth: 0
       
       - name: Change directory
-        run: cd folder_2
+        run: cd wilson
       
-      - name: Change directory
+      - name: Print working directory
         run: pwd
       
       - name: Checkout branch
@@ -25,6 +25,9 @@ jobs:
       
       - name: Print branch name
         run: git branch
+      
+      - name: List file
+        run: ls
       
 #       - name: Merge changes
 #         run: |

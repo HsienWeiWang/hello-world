@@ -15,8 +15,8 @@ jobs:
           fetch-depth: 0
 
       
-#       - name: Another step
-#         run: echo $PIPELINE_FOLDER_PATH
+      - name: Another step
+        run: echo $PIPELINE_FOLDER_PATH
         
 #       - name: cd
 #         run: |

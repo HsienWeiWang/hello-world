@@ -14,6 +14,8 @@ jobs:
           pwd
           echo =============
           ls
+          cd ./wilson
+          pwd
           
 #       - name: step2
 #         run: |

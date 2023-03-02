@@ -16,16 +16,22 @@ jobs:
           
       - name: Set variable
         run : |
-          echo "PIPELINE_FOLDER_PATH=wilson/${GITHUB_REF##*/}" >> $GITHUB_ENV
+          env="develop"
+          if [ "${GITHUB_REF##*/}" = "master" ]; then
+            env="beta"
+          if [ "${GITHUB_REF##*/}" = "test" ]; then
+            env="test" 
+          echo "$env"
+
       
-      - name: Another step
-        run: echo $PIPELINE_FOLDER_PATH
+#       - name: Another step
+#         run: echo $PIPELINE_FOLDER_PATH
         
-      - name: cd
-        run: |
-          cd ./$PIPELINE_FOLDER_PATH
-          ls
-          pwd
+#       - name: cd
+#         run: |
+#           cd ./$PIPELINE_FOLDER_PATH
+#           ls
+#           pwd
       
 #       - name: Merge changes
 #         run: |

@@ -15,32 +15,6 @@ jobs:
           mkdir -p "dag_py_folder"
       - name: step2
         run: |
-          ls
+          pwd
           cd ./$PIPELINE_FOLDER_PATH
           ls
-#       - name: Check out
-#         uses: actions/checkout@v3
-#         with:
-#           fetch-depth: 0
-
-      
-#       - name: Another step
-#         run: echo $PIPELINE_FOLDER_PATH
-        
-# #       - name: cd
-# #         run: |
-# #           cd ./$PIPELINE_FOLDER_PATH
-# #           ls
-# #           pwd
-      
-#       - name: Merge changes
-#         run: |
-#           git config --global user.email "wang83083030@gmail.com"
-#           git config --global user.name "Wilson Wang"
-#           git checkout master_ready
-#           git reset --hard master
-#           git merge master
-#           git add -A
-#           git commit -m "Github Action Auto Commit"
-#           git push origin master_ready
-      

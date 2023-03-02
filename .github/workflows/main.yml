@@ -21,4 +21,5 @@ jobs:
       - name: step2
         run: |
           pwd
+          cd ./wilson
           ls

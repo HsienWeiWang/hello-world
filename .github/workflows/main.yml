@@ -29,7 +29,7 @@ jobs:
           git config --global user.email "wang83083030@gmail.com"
           git config --global user.name "Wilson Wang"
           git checkout master_ready
-          git pull --rebase
+          git reset --hard master
           git merge master
           git add -A
           git commit -m "Github Action Auto Commit"

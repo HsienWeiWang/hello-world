@@ -18,21 +18,6 @@ jobs:
         run : |
           echo "PIPELINE_FOLDER_PATH=/wilson/${GITHUB_REF##*/}" >> $GITHUB_ENV
       
-      - name: Change directory
-        run: cd wilson
-      
-      - name: Print working directory
-        run: pwd
-      
-      - name: Checkout branch
-        run: git checkout master_ready
-      
-      - name: Print branch name
-        run: git branch
-      
-      - name: List file
-        run: ls
-      
       - name: Another step
         run: echo $PIPELINE_FOLDER_PATH
         

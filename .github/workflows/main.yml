@@ -14,25 +14,31 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Branch name
-        run: echo running on branch ${GITHUB_REF##*/}
+      - name: Change directory
+        run: cd folder_2
       
-      - name: List branchs
-        run: git branch -r
+      - name: Change directory
+        run: pwd
       
-      - name: Merge changes
-        run: |
-          git config --global user.email "wang83083030@gmail.com"
-          git config --global user.name "Wilson Wang"
-          git checkout master_ready
-          git merge master
-          mkdir -p "py_folder"
-          find "." -name '*.yaml' -type f | while read file; do
-              filename=$(basename "$file" .yaml)
-              echo $filename
-              cp "$file" "py_folder/$filename.txt"
-          done
-          git add -A
-          git commit -m "Github Action Auto Commit"
-          git push origin master_ready
+      - name: Checkout branch
+        run: git checkout master_ready
+      
+      - name: Print branch name
+        run: git branch
+      
+#       - name: Merge changes
+#         run: |
+#           git config --global user.email "wang83083030@gmail.com"
+#           git config --global user.name "Wilson Wang"
+#           git checkout master_ready
+#           git merge master
+#           mkdir -p "py_folder"
+#           find "." -name '*.yaml' -type f | while read file; do
+#               filename=$(basename "$file" .yaml)
+#               echo $filename
+#               cp "$file" "py_folder/$filename.txt"
+#           done
+#           git add -A
+#           git commit -m "Github Action Auto Commit"
+#           git push origin master_ready
       

@@ -10,13 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Step 1
+        id: step1
         run: exit 1
       - name: Step 2
         run: echo "Step 2"
         if: ${{ needs.step1.result }} != 'success'
       - name: Step 3
         run: echo "Step 3"
-        if: ${{ needs.step1.result }} == 'failure'
+        if: steps.step1.outcome == 'failure'
       - name: Step 4
         run: echo "Step 4"
 #       - name: Check out

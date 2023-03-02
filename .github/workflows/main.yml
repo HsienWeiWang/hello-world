@@ -16,14 +16,14 @@ jobs:
           
       - name: Set variable
         run : |
-          echo "PIPELINE_FOLDER_PATH=/wilson/${GITHUB_REF##*/}" >> $GITHUB_ENV
+          echo "PIPELINE_FOLDER_PATH=wilson/${GITHUB_REF##*/}" >> $GITHUB_ENV
       
       - name: Another step
         run: echo $PIPELINE_FOLDER_PATH
         
       - name: cd
         run: |
-          cd $PIPELINE_FOLDER_PATH
+          cd ./$PIPELINE_FOLDER_PATH
           ls
           pwd
       

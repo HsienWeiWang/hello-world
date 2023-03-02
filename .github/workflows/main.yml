@@ -9,29 +9,39 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - name: Step 1
+        run: exit 1
+      - name: Step 2
+        run: echo "Step 2"
+        if: ${{ needs.step1.result }} != 'success'
+      - name: Step 3
+        run: echo "Step 3"
+        if: ${{ needs.step1.result }} == 'failure'
+      - name: Step 4
+        run: echo "Step 4"
+#       - name: Check out
+#         uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 0
 
       
-      - name: Another step
-        run: echo $PIPELINE_FOLDER_PATH
+#       - name: Another step
+#         run: echo $PIPELINE_FOLDER_PATH
         
-#       - name: cd
-#         run: |
-#           cd ./$PIPELINE_FOLDER_PATH
-#           ls
-#           pwd
+# #       - name: cd
+# #         run: |
+# #           cd ./$PIPELINE_FOLDER_PATH
+# #           ls
+# #           pwd
       
-      - name: Merge changes
-        run: |
-          git config --global user.email "wang83083030@gmail.com"
-          git config --global user.name "Wilson Wang"
-          git checkout master_ready
-          git reset --hard master
-          git merge master
-          git add -A
-          git commit -m "Github Action Auto Commit"
-          git push origin master_ready
+#       - name: Merge changes
+#         run: |
+#           git config --global user.email "wang83083030@gmail.com"
+#           git config --global user.name "Wilson Wang"
+#           git checkout master_ready
+#           git reset --hard master
+#           git merge master
+#           git add -A
+#           git commit -m "Github Action Auto Commit"
+#           git push origin master_ready
       

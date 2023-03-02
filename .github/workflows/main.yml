@@ -13,6 +13,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          
+      - name: Set variable
+        run : |
+          echo "PIPELINE_FOLDER_PATH=/wilson/${GITHUB_REF##*/}" >> $GITHUB_ENV
       
       - name: Change directory
         run: cd wilson
@@ -28,6 +32,15 @@ jobs:
       
       - name: List file
         run: ls
+      
+      - name: Another step
+        run: echo $PIPELINE_FOLDER_PATH
+        
+      - name: cd
+        run: |
+          cd $PIPELINE_FOLDER_PATH
+          ls
+          pwd
       
 #       - name: Merge changes
 #         run: |

@@ -36,10 +36,12 @@ jobs:
           
       - name: Create folder
         run: |
+          cd ./wilson
           mkdir -p "dag_py_folder"
           
       - name: Execute py script
         run: |
+          pwd
           python test.py
       
       - name: Push change

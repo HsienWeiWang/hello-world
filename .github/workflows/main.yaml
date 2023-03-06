@@ -44,4 +44,6 @@ jobs:
       
       - name: Push change
         run: |
+          git add -A
+          git commit -m "Github Action Auto Commit"
           git push origin master_ready

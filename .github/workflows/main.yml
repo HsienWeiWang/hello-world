@@ -23,6 +23,10 @@ jobs:
         run: |
           git checkout master_ready
           git merge master
+      
+      - name: Push change
+        run: |
+          git push origin master_ready     
           
 #       - name: step1
 #         run: |

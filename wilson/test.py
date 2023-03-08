@@ -9,16 +9,16 @@ from dagfactory import DAGFactory
 dag = DAGFactory.create_dag({yaml_contents})
 """
 
+airflow_path = '/opt/airflow/dags/repo/pipeline/'
+
 dag_py_folder = 'dag_py_folder'
 
 for subdir, dirs, files in os.walk('.'):
+    print('==========')
+    print('subdir', subdir)
     for file in files:
         if file.endswith('.yaml'):
             with open(os.path.join(subdir, file), 'r') as f:
                 yaml_contents = yaml.load(f, Loader=yaml.FullLoader)
-
-            py_filename = os.path.splitext(file)[0] + '.py'
-            py_contents = PY_TEMPLATE.format(yaml_contents=yaml_contents)
-
-            with open(os.path.join(os.getcwd(), dag_py_folder, py_filename), 'w') as f:
-                f.write(py_contents)
+            airflow_yaml_path = os.path.join(airflow_path, subdir, file)
+            print(airflow_yaml_path)

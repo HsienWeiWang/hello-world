@@ -58,9 +58,7 @@ jobs:
           pull-request-number: ${{ steps.create_pull_request.outputs.pull-request-number }}
           review-message: "Auto approved automated PR"
           
-      - name: Enable Pull Request Automerge
-        uses: peter-evans/enable-pull-request-automerge@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          pull-request-number: ${{ steps.create_pull_request.outputs.pull-request-number }}
-          merge-method: merge
+      - name: Merge pull request
+        run: gh pr merge ${{ steps.create_pull_request.outputs.pull-request-number }} --merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

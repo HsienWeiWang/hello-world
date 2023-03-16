@@ -26,3 +26,7 @@ jobs:
         run: |
           git checkout -b $TEMP_BRANCH
           git push -u origin $TEMP_BRANCH
+      
+      - name: Delete branch
+        run: |
+          git push --delete origin $TEMP_BRANCH

@@ -21,3 +21,8 @@ jobs:
       - name: Echo temp branch
         run: |
           echo $TEMP_BRANCH
+      
+      - name: Create branch
+        run: |
+          git checkout -b $TEMP_BRANCH
+          git push -u origin $TEMP_BRANCH
